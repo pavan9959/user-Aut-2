@@ -11,13 +11,17 @@ function App() {
     return state.state;
   });
 
+  const state1 = useSelector((state) => {
+    return state.state1;
+  });
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       settoggle(true);
     } else {
       settoggle(false);
     }
-  }, [state]);
+  }, [state, state1]);
 
   return <div>{toggle ? <Router2 /> : <Router1 />}</div>;
 }
